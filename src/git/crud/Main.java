@@ -9,5 +9,6 @@ public class Main {
         md.requestFileName();
         md.createFile();
         md.readFile();
+        md.updateFile();
     }
 }

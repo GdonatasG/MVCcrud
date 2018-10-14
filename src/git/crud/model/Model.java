@@ -2,6 +2,7 @@ package git.crud.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -44,6 +45,27 @@ public class Model {
                 skan.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    public void updateFile() {
+        File file = new File(fileName);
+        if (file.exists()) {
+            try {
+                String tekstas;
+                Scanner skan = new Scanner(System.in);
+                FileWriter writer = new FileWriter(file, true);
+                System.out.println("Iveskite teksta is spauskite enter, ivedus zodi pabaiga procesas bus nutrauktas");
+                do {
+                    tekstas = skan.nextLine();
+                    if (!tekstas.toLowerCase().equals("pabaiga")) {
+                        writer.write(tekstas + "\n");
+                    }
+                } while (!tekstas.toLowerCase().equals("pabaiga"));
+                writer.close();
+            } catch (IOException e) {
+                System.out.println("Toks failas neegzistuoja!");
             }
         }
     }
