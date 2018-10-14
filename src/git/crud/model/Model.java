@@ -69,4 +69,16 @@ public class Model {
             }
         }
     }
+
+    public void deleteFile() {
+        File file = new File(fileName);
+        if (file.exists()) {
+            System.out.println("Ar tikrai norite istrinti faila " + fileName + " ? T/N");
+            Scanner skan = new Scanner(System.in);
+            String ar = skan.nextLine();
+            if (ar.toLowerCase().equals("t")) {
+                file.delete();
+            }
+        }
+    }
 }
