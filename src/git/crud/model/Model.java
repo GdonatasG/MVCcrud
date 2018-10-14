@@ -78,6 +78,7 @@ public class Model {
             String ar = skan.nextLine();
             if (ar.toLowerCase().equals("t")) {
                 file.delete();
+                System.out.println("Failas " + fileName + " sekmingai pasalintas.");
             }
         }
     }
