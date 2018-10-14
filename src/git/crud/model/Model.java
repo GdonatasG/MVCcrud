@@ -1,6 +1,7 @@
 package git.crud.model;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -29,6 +30,21 @@ public class Model {
             }
         } else {
             System.out.println("Toks failas jau egzistuoja!");
+        }
+    }
+
+    public void readFile() {
+        File file = new File(fileName);
+        if (file.exists()) {
+            try {
+                Scanner skan = new Scanner(file);
+                while (skan.hasNextLine()) {
+                    System.out.println(skan.nextLine());
+                }
+                skan.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
